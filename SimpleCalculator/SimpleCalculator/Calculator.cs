@@ -1,12 +1,5 @@
 ﻿using SimpleCalculator.Handlers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SimpleCalculator
@@ -18,6 +11,8 @@ namespace SimpleCalculator
             InitializeComponent();
         }
 
+        bool isPerformed = false;
+
         private void digitBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = new KeywordInputHandler(ref digitBox).InputChecker(e.KeyChar.ToString());
@@ -25,7 +20,7 @@ namespace SimpleCalculator
 
         private void button_Click(object sender, EventArgs e)
         {
-            new UIButtonInputHandler(ref digitBox).InputChecker((sender as Button).Text);
+            isPerformed = new UIButtonInputHandler(ref digitBox).InputChecker((sender as Button).Text);
         }
 
         private void digitBox_TextChanged(object sender, EventArgs e)

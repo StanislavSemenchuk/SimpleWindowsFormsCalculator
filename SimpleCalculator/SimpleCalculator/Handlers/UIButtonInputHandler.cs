@@ -18,7 +18,14 @@ namespace SimpleCalculator.Handlers
         /// <returns>return true if character is digit, dot, backspase or operation sign, and perform operation</returns>
         public override bool InputChecker(string inputed)
         {
-            if (inputed == "=")
+            string allowedCharsRegexPattern = @"^(\d*(\.)?[\+\*\/-]?)$";
+            //Check if character is digit, dot, backspase or operation sign
+            if (Regex.IsMatch(inputed.ToString(), allowedCharsRegexPattern)) 
+            {
+                _digitBox.Text += inputed;
+                return true;
+            }
+            else if (inputed == "=")
             {
                 _digitBox.Text = PerformCalculations(_digitBox.Text);
                 return true;
@@ -30,7 +37,7 @@ namespace SimpleCalculator.Handlers
                     : _digitBox.Text;
                 return true;
             }
-            else if (inputed == "CE") 
+            else if (inputed == "CE")
             {
                 _digitBox.Text = string.Empty;
                 return true;
