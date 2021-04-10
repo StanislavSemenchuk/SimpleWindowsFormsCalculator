@@ -29,8 +29,8 @@ namespace SimpleCalculator.Handlers
             }
             if (inputed == "=" || inputed == ((char)Keys.Enter).ToString())
             {
-                _digitBox.Text = _digitBox.Text.Replace(',', '.');
                 _digitBox.Text = _calculationPerformer.PerformCalculations(_digitBox.Text);
+                _digitBox.Text = _digitBox.Text.Replace(',', '.');
                 return true;
             }
             if (inputed == "⌫" || inputed == ((char)Keys.Back).ToString())
