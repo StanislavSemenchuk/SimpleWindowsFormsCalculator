@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleCalculator.Handlers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace SimpleCalculator
         public Calculator()
         {
             InitializeComponent();
+        }
+
+        private void digitBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = new KeywordInputHandler(ref digitBox).InputChecker(e.KeyChar.ToString());
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
         }
     }
 }

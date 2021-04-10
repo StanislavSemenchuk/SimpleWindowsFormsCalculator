@@ -47,7 +47,7 @@ namespace SimpleCalculator
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.digitBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -148,6 +148,7 @@ namespace SimpleCalculator
             this.button11.TabIndex = 10;
             this.button11.Text = "1";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button_Click);
             // 
             // button12
             // 
@@ -212,20 +213,24 @@ namespace SimpleCalculator
             this.button18.Text = "<-";
             this.button18.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // digitBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 23);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.digitBox.AllowDrop = true;
+            this.digitBox.Location = new System.Drawing.Point(7, 28);
+            this.digitBox.Name = "digitBox";
+            this.digitBox.PlaceholderText = "Your equitation";
+            this.digitBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.digitBox.Size = new System.Drawing.Size(233, 23);
+            this.digitBox.TabIndex = 18;
+            this.digitBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.digitBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.digitBox_KeyPress);
             // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 253);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.digitBox);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button16);
@@ -275,7 +280,7 @@ namespace SimpleCalculator
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox digitBox;
     }
 }
 
