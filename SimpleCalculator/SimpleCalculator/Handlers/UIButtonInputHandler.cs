@@ -13,10 +13,9 @@ namespace SimpleCalculator.Handlers
         }
 
         /// <summary>
-        /// chek if character is digit, dot, backspase or operation sign, and perform operation
         /// </summary>
         /// <param name="inputedChar"></param>
-        /// <returns>return true if character is digit, dot, backspase or operation sign</returns>
+        /// <returns>return true if character is digit, dot, backspase or operation sign, and perform operation</returns>
         public override bool InputChecker(string inputed)
         {
             string allowedCharsRegexPattern = @"^(\d*(\.)?[\+\*\/-]?)$";

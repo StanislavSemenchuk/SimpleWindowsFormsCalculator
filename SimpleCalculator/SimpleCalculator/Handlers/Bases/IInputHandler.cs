@@ -5,12 +5,7 @@ namespace SimpleCalculator.Handlers.Bases
 {
     abstract class InputHandler
     {
-        /// <summary>
-        /// Perform Calculation of expression
-        /// </summary>
-        /// <param name="equitationString"></param>
-        /// <returns>string with result of math expression</returns>
-        protected string PerformCalculations(string equitationString) 
+        public string PerformCalculations(string equitationString) 
         {
             try
             {
