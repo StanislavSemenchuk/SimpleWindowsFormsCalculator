@@ -25,6 +25,14 @@ namespace SimpleCalculator
 
         private void button_Click(object sender, EventArgs e)
         {
+            new UIButtonInputHandler(ref digitBox).InputChecker((sender as Button).Text);
+        }
+
+        private void digitBox_TextChanged(object sender, EventArgs e)
+        {
+            digitBox.SelectionStart = digitBox.Text.Length;
+            digitBox.SelectionLength = 0;
+            digitBox.Focus();
         }
     }
 }
