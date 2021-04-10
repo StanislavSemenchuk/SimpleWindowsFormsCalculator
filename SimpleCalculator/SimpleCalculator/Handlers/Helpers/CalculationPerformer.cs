@@ -1,17 +1,17 @@
 ﻿using SimpleCalculator.Services;
 using System.Windows.Forms;
 
-namespace SimpleCalculator.Handlers.Bases
+namespace SimpleCalculator.Handlers.Helpers
 {
-    abstract class InputHandler
+    class CalculationPerformer
     {
-        public string PerformCalculations(string equitationString) 
+        public string PerformCalculations(string equitationString)
         {
             try
             {
                 return new CalculationService().CalculateEquitationFromString(equitationString);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Something wrong with your expression. \n" +
                     "Rules:\n" +
@@ -20,7 +20,5 @@ namespace SimpleCalculator.Handlers.Bases
                 return equitationString;
             }
         }
-
-        public abstract bool InputChecker(string inputedChar);
     }
 }

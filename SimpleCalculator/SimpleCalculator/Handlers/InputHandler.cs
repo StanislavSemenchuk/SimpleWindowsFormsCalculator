@@ -1,13 +1,15 @@
-﻿using SimpleCalculator.Handlers.Bases;
+﻿using SimpleCalculator.Handlers.Helpers;
+using SimpleCalculator.Handlers.Interfaces;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SimpleCalculator.Handlers
 {
-    class UIButtonInputHandler : InputHandler
+    class InputHandler : IInputHandler
     {
         private TextBox _digitBox;
-        public UIButtonInputHandler(ref TextBox outBox)
+        private CalculationPerformer _calculationPerformer = new CalculationPerformer();
+        public InputHandler(ref TextBox outBox)
         {
             _digitBox = outBox;
         }
@@ -16,7 +18,7 @@ namespace SimpleCalculator.Handlers
         /// </summary>
         /// <param name="inputedChar"></param>
         /// <returns>return true if character is digit, dot, backspase or operation sign, and perform operation</returns>
-        public override bool InputChecker(string inputed)
+        public bool InputChecker(string inputed)
         {
             string allowedCharsRegexPattern = @"^(\d*(\.)?[\+\*\/-]?)$";
             //Check if character is digit, dot, backspase or operation sign
@@ -25,12 +27,12 @@ namespace SimpleCalculator.Handlers
                 _digitBox.Text += inputed;
                 return true;
             }
-            if (inputed == "=")
+            if (inputed == "=" || inputed == ((char)Keys.Enter).ToString())
             {
-                _digitBox.Text = PerformCalculations(_digitBox.Text);
+                _digitBox.Text = _calculationPerformer.PerformCalculations(_digitBox.Text);
                 return true;
             }
-            if (inputed == "⌫")
+            if (inputed == "⌫" || inputed == ((char)Keys.Back).ToString())
             {
                 _digitBox.Text = !string.IsNullOrWhiteSpace(_digitBox.Text)
                     ? _digitBox.Text.Substring(0, _digitBox.Text.Length - 1)
