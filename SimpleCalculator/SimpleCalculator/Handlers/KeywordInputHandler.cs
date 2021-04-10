@@ -27,7 +27,7 @@ namespace SimpleCalculator.Handlers
                     _digitBox.Text = PerformCalculations(_digitBox.Text);
                     return true;
                 }
-                else if (inputed == ((char)Keys.Back).ToString())
+                if (inputed == ((char)Keys.Back).ToString())
                 {
                     _digitBox.Text = !string.IsNullOrWhiteSpace(_digitBox.Text)
                         ? _digitBox.Text.Substring(0, _digitBox.Text.Length - 1)

@@ -25,19 +25,19 @@ namespace SimpleCalculator.Handlers
                 _digitBox.Text += inputed;
                 return true;
             }
-            else if (inputed == "=")
+            if (inputed == "=")
             {
                 _digitBox.Text = PerformCalculations(_digitBox.Text);
                 return true;
             }
-            else if (inputed == "⌫")
+            if (inputed == "⌫")
             {
                 _digitBox.Text = !string.IsNullOrWhiteSpace(_digitBox.Text)
                     ? _digitBox.Text.Substring(0, _digitBox.Text.Length - 1)
                     : _digitBox.Text;
                 return true;
             }
-            else if (inputed == "CE")
+            if (inputed == "CE")
             {
                 _digitBox.Text = string.Empty;
                 return true;
