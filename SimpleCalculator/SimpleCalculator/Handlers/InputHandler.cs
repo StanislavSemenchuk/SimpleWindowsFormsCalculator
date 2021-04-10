@@ -20,15 +20,16 @@ namespace SimpleCalculator.Handlers
         /// <returns>return true if character is digit, dot, backspase or operation sign, and perform operation</returns>
         public bool InputChecker(string inputed)
         {
-            string allowedCharsRegexPattern = @"^(([+-])?([\d]+[\.]?)+([\+\*-\/])?)*$";
+            string allowedCharsRegexPattern = @"^[\+\*\/\-\.\d+]$";
             //Check if character is digit, dot, backspase or operation sign
-            if (Regex.IsMatch(inputed.ToString(), allowedCharsRegexPattern)) 
+            if (Regex.IsMatch(inputed, allowedCharsRegexPattern)) 
             {
                 _digitBox.Text += inputed;
                 return true;
             }
             if (inputed == "=" || inputed == ((char)Keys.Enter).ToString())
             {
+                _digitBox.Text = _digitBox.Text.Replace(',', '.');
                 _digitBox.Text = _calculationPerformer.PerformCalculations(_digitBox.Text);
                 return true;
             }
