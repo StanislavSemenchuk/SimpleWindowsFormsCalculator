@@ -11,7 +11,7 @@ namespace SimpleCalculator
         public Calculator()
         {
             InitializeComponent();
-            _inputHandler = new InputHandler(ref digitBox);
+            _inputHandler = new InputHandler(digitBox);
         }
 
         private void digitBox_KeyPress(object sender, KeyPressEventArgs e)
