@@ -234,7 +234,9 @@ namespace SimpleCalculator
             // digitBox
             // 
             this.digitBox.AllowDrop = true;
+            this.digitBox.BackColor = System.Drawing.SystemColors.Control;
             this.digitBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.digitBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.digitBox.Location = new System.Drawing.Point(7, 28);
             this.digitBox.Name = "digitBox";
             this.digitBox.PlaceholderText = "Your equitation";
