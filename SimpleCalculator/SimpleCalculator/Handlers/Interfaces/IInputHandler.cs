@@ -3,6 +3,6 @@ namespace SimpleCalculator.Handlers.Interfaces
 {
     interface IInputHandler
     {
-        public bool InputChecker(string inputedChar);
+        public void InputChecker(string inputedChar);
     }
 }

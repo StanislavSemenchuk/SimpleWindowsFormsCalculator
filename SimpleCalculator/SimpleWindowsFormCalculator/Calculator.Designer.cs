@@ -1,5 +1,5 @@
 ﻿
-namespace SimpleCalculator
+namespace SimpleWindowsFormCalculator
 {
     partial class Calculator
     {
@@ -58,7 +58,6 @@ namespace SimpleCalculator
             this.button1.TabIndex = 0;
             this.button1.Text = "7";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button_Click);
             // 
             // button2
             // 
@@ -68,7 +67,6 @@ namespace SimpleCalculator
             this.button2.TabIndex = 1;
             this.button2.Text = "8";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_Click);
             // 
             // button3
             // 
@@ -78,7 +76,6 @@ namespace SimpleCalculator
             this.button3.TabIndex = 2;
             this.button3.Text = "9";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button_Click);
             // 
             // button4
             // 
@@ -88,7 +85,6 @@ namespace SimpleCalculator
             this.button4.TabIndex = 3;
             this.button4.Text = "6";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button_Click);
             // 
             // button5
             // 
@@ -98,7 +94,6 @@ namespace SimpleCalculator
             this.button5.TabIndex = 4;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button_Click);
             // 
             // button6
             // 
@@ -108,7 +103,6 @@ namespace SimpleCalculator
             this.button6.TabIndex = 5;
             this.button6.Text = "4";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button_Click);
             // 
             // button7
             // 
@@ -116,9 +110,8 @@ namespace SimpleCalculator
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(44, 44);
             this.button7.TabIndex = 6;
-            this.button7.Text = "C";
+            this.button7.Text = "CE";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button_Click);
             // 
             // button8
             // 
@@ -128,7 +121,6 @@ namespace SimpleCalculator
             this.button8.TabIndex = 7;
             this.button8.Text = "/";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button_Click);
             // 
             // button9
             // 
@@ -138,7 +130,6 @@ namespace SimpleCalculator
             this.button9.TabIndex = 8;
             this.button9.Text = "3";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button_Click);
             // 
             // button10
             // 
@@ -148,7 +139,6 @@ namespace SimpleCalculator
             this.button10.TabIndex = 9;
             this.button10.Text = "2";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button_Click);
             // 
             // button11
             // 
@@ -158,7 +148,6 @@ namespace SimpleCalculator
             this.button11.TabIndex = 10;
             this.button11.Text = "1";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button_Click);
             // 
             // button12
             // 
@@ -168,7 +157,6 @@ namespace SimpleCalculator
             this.button12.TabIndex = 11;
             this.button12.Text = "0";
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button_Click);
             // 
             // button13
             // 
@@ -178,7 +166,6 @@ namespace SimpleCalculator
             this.button13.TabIndex = 12;
             this.button13.Text = ".";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button_Click);
             // 
             // button14
             // 
@@ -188,7 +175,6 @@ namespace SimpleCalculator
             this.button14.TabIndex = 13;
             this.button14.Text = "+";
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button_Click);
             // 
             // button15
             // 
@@ -198,7 +184,6 @@ namespace SimpleCalculator
             this.button15.TabIndex = 14;
             this.button15.Text = "=";
             this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button_Click);
             // 
             // button16
             // 
@@ -208,7 +193,6 @@ namespace SimpleCalculator
             this.button16.TabIndex = 15;
             this.button16.Text = "-";
             this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button_Click);
             // 
             // button17
             // 
@@ -218,7 +202,6 @@ namespace SimpleCalculator
             this.button17.TabIndex = 16;
             this.button17.Text = "*";
             this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button_Click);
             // 
             // button18
             // 
@@ -229,23 +212,17 @@ namespace SimpleCalculator
             this.button18.TabIndex = 17;
             this.button18.Text = "⌫";
             this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button_Click);
             // 
             // digitBox
             // 
             this.digitBox.AllowDrop = true;
-            this.digitBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.digitBox.Location = new System.Drawing.Point(7, 28);
             this.digitBox.Name = "digitBox";
             this.digitBox.PlaceholderText = "Your equitation";
-            this.digitBox.ReadOnly = true;
             this.digitBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.digitBox.Size = new System.Drawing.Size(233, 23);
             this.digitBox.TabIndex = 18;
             this.digitBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.digitBox.ReadOnlyChanged += new System.EventHandler(this.digitBox_TextChanged);
-            this.digitBox.TextChanged += new System.EventHandler(this.digitBox_TextChanged);
-            this.digitBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.digitBox_KeyPress);
             // 
             // Calculator
             // 

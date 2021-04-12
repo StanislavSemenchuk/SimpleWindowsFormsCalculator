@@ -16,7 +16,7 @@ namespace SimpleCalculator
 
         private void digitBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = _inputHandler.InputChecker(e.KeyChar.ToString());
+            _inputHandler.InputChecker(e.KeyChar.ToString());
         }
 
         private void button_Click(object sender, EventArgs e)
