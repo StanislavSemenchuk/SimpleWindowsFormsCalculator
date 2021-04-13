@@ -10,21 +10,25 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
         private TextBox _digitBox;
         private StringBuilder _expression;
         private CalculationPerformer _calculationPerformer;
-        public EqualInputHandler(TextBox digitBox, StringBuilder expression)
+        private WrapperHelper<bool> _operationPerformed;
+        public EqualInputHandler(TextBox digitBox, StringBuilder expression, WrapperHelper<bool> operationPerformed)
         {
             _digitBox = digitBox;
             _expression = expression;
             _calculationPerformer = new CalculationPerformer();
+            _operationPerformed = operationPerformed;
         }
         public void InputChecker(string inputed)
         {
-            if (inputed == "=" || inputed == ((char)Keys.Enter).ToString())
-            {
-                _expression.Append(_digitBox.Text);
-                _digitBox.Text = _calculationPerformer.PerformCalculations(_expression.ToString());
-                _digitBox.Text = _digitBox.Text.Replace(',', '.');
-                _expression.Remove(0, _expression.Length);
-            }
+            _expression.Append(_digitBox.Text);
+            _digitBox.Text = _calculationPerformer.PerformCalculations(_expression.ToString());
+            _digitBox.Text = _digitBox.Text.Replace(',', '.');
+            _expression.Remove(0, _expression.Length);
+            ChangeOperationState(_operationPerformed);
+        }
+        private void ChangeOperationState(WrapperHelper<bool> operationPerformed) 
+        {
+            operationPerformed.Value = true;
         }
     }
 }

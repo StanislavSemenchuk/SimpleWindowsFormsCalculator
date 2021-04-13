@@ -1,4 +1,5 @@
-﻿using SimpleCalculator.Handlers.Interfaces;
+﻿using SimpleCalculator.Handlers.Helpers;
+using SimpleCalculator.Handlers.Interfaces;
 using SimpleCalculator.Handlers.InterfacesRealization;
 using System.Collections.Generic;
 using System.Text;
@@ -8,9 +9,10 @@ namespace SimpleCalculator.Handlers
 {
     class InputPerformer
     {
-        private readonly TextBox _digitBox;
-        private readonly StringBuilder _expressionBuilder;
+        private TextBox _digitBox;
+        private StringBuilder _expressionBuilder;
         private readonly Dictionary<string, IInputHandler> _strategyPairs;
+        private WrapperHelper<bool> isOperationPerformed = new WrapperHelper<bool>() {Value = false };
         #region handlers disclosure
         private IInputHandler _numberHandler;
         private IInputHandler _operatorsHandler;
@@ -39,10 +41,10 @@ namespace SimpleCalculator.Handlers
         private void InitializeDictionary() 
         {
             #region initializing handlers
-            _numberHandler = new NumberInputHandler(_digitBox);
+            _numberHandler = new NumberInputHandler(_digitBox, isOperationPerformed);
             _operatorsHandler = new OperatorsInputHandler(_digitBox, _expressionBuilder);
             _backSpaseHandler = new BackSpaceInputHandler(_digitBox);
-            _equalHandler = new EqualInputHandler(_digitBox, _expressionBuilder);
+            _equalHandler = new EqualInputHandler(_digitBox, _expressionBuilder, isOperationPerformed);
             _clearHandler = new ClearInputHandler(_digitBox, _expressionBuilder);
             #endregion
             #region initializating dictionary values
@@ -65,7 +67,6 @@ namespace SimpleCalculator.Handlers
             _strategyPairs.Add("/", _operatorsHandler);
             //equal operations
             _strategyPairs.Add("=", _equalHandler);
-            _strategyPairs.Add(((char)Keys.Enter).ToString(), _equalHandler);
             //backspace handler
             _strategyPairs.Add("⌫", _backSpaseHandler);
             _strategyPairs.Add(((char)Keys.Back).ToString(), _backSpaseHandler);
