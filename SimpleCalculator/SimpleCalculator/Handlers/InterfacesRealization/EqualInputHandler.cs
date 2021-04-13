@@ -1,6 +1,6 @@
 ﻿using SimpleCalculator.Handlers.Helpers;
 using SimpleCalculator.Handlers.Interfaces;
-using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SimpleCalculator.Handlers.InterfacesRealization
@@ -8,9 +8,9 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
     class EqualInputHandler : IInputHandler
     {
         private TextBox _digitBox;
-        private String _expression;
+        private StringBuilder _expression;
         private CalculationPerformer _calculationPerformer;
-        public EqualInputHandler(TextBox digitBox, string expression)
+        public EqualInputHandler(TextBox digitBox, StringBuilder expression)
         {
             _digitBox = digitBox;
             _expression = expression;
@@ -20,10 +20,10 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
         {
             if (inputed == "=" || inputed == ((char)Keys.Enter).ToString())
             {
-                _expression += _digitBox.Text;
-                _digitBox.Text = _calculationPerformer.PerformCalculations(_expression);
+                _expression.Append(_digitBox.Text);
+                _digitBox.Text = _calculationPerformer.PerformCalculations(_expression.ToString());
                 _digitBox.Text = _digitBox.Text.Replace(',', '.');
-                _expression = string.Empty;
+                _expression.Remove(0, _expression.Length);
             }
         }
     }

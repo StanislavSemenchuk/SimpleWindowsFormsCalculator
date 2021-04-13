@@ -7,21 +7,21 @@ namespace SimpleCalculator
 {
     public partial class Calculator : Form
     {
-        private readonly IInputHandler _inputHandler;
+        private readonly InputPerformer _inputHandler;
         public Calculator()
         {
             InitializeComponent();
-            _inputHandler = new InputHandler(digitBox);
+            _inputHandler = new InputPerformer(digitBox);
         }
 
         private void digitBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            _inputHandler.InputChecker(e.KeyChar.ToString());
+            _inputHandler.Perform(e.KeyChar.ToString());
         }
 
         private void button_Click(object sender, EventArgs e)
         {
-            _inputHandler.InputChecker((sender as Button).Text);
+            _inputHandler.Perform((sender as Button).Text);
         }
 
         private void digitBox_TextChanged(object sender, EventArgs e)
