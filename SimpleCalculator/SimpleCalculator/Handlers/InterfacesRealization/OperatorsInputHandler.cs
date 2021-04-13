@@ -11,6 +11,7 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
         private StringBuilder _expression;
         private CalculationPerformer _calculationPerformer;
         private WrapperHelper<bool> _operationPerformed;
+
         public OperatorsInputHandler(TextBox digitBox, StringBuilder expression, WrapperHelper<bool> operationPerformed)
         {
             _digitBox = digitBox;
@@ -18,6 +19,7 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
             _operationPerformed = operationPerformed;
             _calculationPerformer = new CalculationPerformer();
         }
+
         public void InputChecker(string inputed)
         {
             if (_expression.ToString().IndexOfAny(new char[] { '+', '-', '*', '/' }) == -1)
@@ -33,6 +35,10 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
             _digitBox.Text = _expression.ToString();
             ChangeOperationState(_operationPerformed);
         }
+        /// <summary>
+        /// change operation performed state to true
+        /// </summary>
+        /// <param name="operationPerformed"></param>
         private void ChangeOperationState(WrapperHelper<bool> operationPerformed)
         {
             operationPerformed.Value = true;

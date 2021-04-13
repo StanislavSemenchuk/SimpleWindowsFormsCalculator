@@ -25,7 +25,10 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
                     _digitBox.Text += inputed;
             }
         }
-
+        /// <summary>
+        /// Change operation performed state to false and cleanup textBox
+        /// </summary>
+        /// <param name="operationPerformed"></param
         private void PerformedChecker(WrapperHelper<bool> operationPerformed) 
         {
             if (operationPerformed.Value)

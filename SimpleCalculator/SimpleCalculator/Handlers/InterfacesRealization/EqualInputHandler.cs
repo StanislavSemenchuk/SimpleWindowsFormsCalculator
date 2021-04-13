@@ -26,6 +26,10 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
             _digitBox.Text = _digitBox.Text.Replace(',', '.');
             _expression.Remove(0, _expression.Length);
         }
+        /// <summary>
+        /// change operation performed state to true
+        /// </summary>
+        /// <param name="operationPerformed"></param
         private void ChangeOperationState(WrapperHelper<bool> operationPerformed) 
         {
             operationPerformed.Value = true;

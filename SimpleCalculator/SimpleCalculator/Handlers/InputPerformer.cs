@@ -11,7 +11,8 @@ namespace SimpleCalculator.Handlers
     {
         private TextBox _digitBox;
         private StringBuilder _expressionBuilder;
-        private readonly Dictionary<string, IInputHandler> _strategyPairs;
+        //Dictionary where key is allowed input string and value is handler whitch procces operation
+        private readonly Dictionary<string, IInputHandler> _strategyPairs
         private WrapperHelper<bool> isOperationPerformed = new WrapperHelper<bool>() {Value = false };
         #region handlers disclosure
         private IInputHandler _numberHandler;
