@@ -10,11 +10,11 @@ namespace SimpleCalculator.Handlers.Helpers
             try
             {
                 var result = new CalculationService().CalculateEquitationFromString(equitationString);
-                return result == "∞"
+                return result == "∞" || result == "NaN"
                     ? "Dividing by zero is forbiden"
                     : result;
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Something wrong with your expression. \n" +
                     "Rules:\n" +
