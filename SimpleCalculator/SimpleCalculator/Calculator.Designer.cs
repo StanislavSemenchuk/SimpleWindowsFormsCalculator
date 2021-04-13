@@ -248,8 +248,6 @@ namespace SimpleCalculator
             this.digitBox.Size = new System.Drawing.Size(233, 23);
             this.digitBox.TabIndex = 18;
             this.digitBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.digitBox.ReadOnlyChanged += new System.EventHandler(this.digitBox_TextChanged);
-            this.digitBox.TextChanged += new System.EventHandler(this.digitBox_TextChanged);
             this.digitBox.GotFocus += new System.EventHandler(this.digitBox_GotFocus);
             this.digitBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.digitBox_KeyPress);
             // 

@@ -25,13 +25,10 @@ namespace SimpleCalculator
             _inputHandler.Perform((sender as Button).Text);
         }
 
-        private void digitBox_TextChanged(object sender, EventArgs e)
-        {
-            digitBox.SelectionStart = digitBox.Text.Length;
-            digitBox.SelectionLength = 0;
-            digitBox.Focus();
-        }
-
+        /// <summary>
+        /// Hide cursor caret
+        /// </summary>
+        /// <param name="hWnd"></param>
         [DllImport("user32")] private static extern bool HideCaret(IntPtr hWnd);
         private void digitBox_GotFocus(object sender, EventArgs e)
         {
