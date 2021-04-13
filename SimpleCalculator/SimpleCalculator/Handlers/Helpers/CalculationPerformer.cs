@@ -19,7 +19,8 @@ namespace SimpleCalculator.Handlers.Helpers
                 MessageBox.Show("Something wrong with your expression. \n" +
                     "Rules:\n" +
                     "- One number might have only one dot\n" +
-                    "- Calculator not supported expressions like : '+-', '-+' etc");
+                    "- Calculator not supported expressions like : '+-', '-+' etc" +
+                    "- You can't divide by zero");
                 return string.Empty;
             }
         }
