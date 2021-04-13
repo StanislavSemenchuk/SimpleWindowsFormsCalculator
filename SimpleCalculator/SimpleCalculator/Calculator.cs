@@ -1,6 +1,7 @@
 ﻿using SimpleCalculator.Handlers;
 using SimpleCalculator.Handlers.Interfaces;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace SimpleCalculator
@@ -29,6 +30,12 @@ namespace SimpleCalculator
             digitBox.SelectionStart = digitBox.Text.Length;
             digitBox.SelectionLength = 0;
             digitBox.Focus();
+        }
+
+        [DllImport("user32")] private static extern bool HideCaret(IntPtr hWnd);
+        private void digitBox_GotFocus(object sender, EventArgs e)
+        {
+            HideCaret(digitBox.Handle);
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Runtime.InteropServices;
+
 namespace SimpleCalculator
 {
     partial class Calculator
@@ -247,6 +250,7 @@ namespace SimpleCalculator
             this.digitBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.digitBox.ReadOnlyChanged += new System.EventHandler(this.digitBox_TextChanged);
             this.digitBox.TextChanged += new System.EventHandler(this.digitBox_TextChanged);
+            this.digitBox.GotFocus += new System.EventHandler(this.digitBox_GotFocus);
             this.digitBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.digitBox_KeyPress);
             // 
             // Calculator
