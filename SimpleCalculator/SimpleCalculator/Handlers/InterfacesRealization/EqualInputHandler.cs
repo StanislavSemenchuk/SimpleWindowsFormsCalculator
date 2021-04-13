@@ -20,11 +20,11 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
         }
         public void InputChecker(string inputed)
         {
+            ChangeOperationState(_operationPerformed);
             _expression.Append(_digitBox.Text);
             _digitBox.Text = _calculationPerformer.PerformCalculations(_expression.ToString());
             _digitBox.Text = _digitBox.Text.Replace(',', '.');
             _expression.Remove(0, _expression.Length);
-            ChangeOperationState(_operationPerformed);
         }
         private void ChangeOperationState(WrapperHelper<bool> operationPerformed) 
         {

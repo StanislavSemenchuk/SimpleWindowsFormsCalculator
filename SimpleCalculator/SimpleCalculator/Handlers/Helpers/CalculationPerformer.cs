@@ -7,7 +7,21 @@ namespace SimpleCalculator.Handlers.Helpers
     {
         public string PerformCalculations(string equitationString)
         {
-            return new CalculationService().CalculateEquitationFromString(equitationString);
+            try
+            {
+                var result = new CalculationService().CalculateEquitationFromString(equitationString);
+                return result == "∞"
+                    ? "Dividing by zero is forbiden"
+                    : result;
+            }
+            catch 
+            {
+                MessageBox.Show("Something wrong with your expression. \n" +
+                    "Rules:\n" +
+                    "- One number might have only one dot\n" +
+                    "- Calculator not supported expressions like : '+-', '-+' etc");
+                return string.Empty;
+            }
         }
     }
 }
