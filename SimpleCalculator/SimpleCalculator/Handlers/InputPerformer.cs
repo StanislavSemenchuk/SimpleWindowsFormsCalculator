@@ -42,7 +42,7 @@ namespace SimpleCalculator.Handlers
         {
             #region initializing handlers
             _numberHandler = new NumberInputHandler(_digitBox, isOperationPerformed);
-            _operatorsHandler = new OperatorsInputHandler(_digitBox, _expressionBuilder);
+            _operatorsHandler = new OperatorsInputHandler(_digitBox, _expressionBuilder, isOperationPerformed);
             _backSpaseHandler = new BackSpaceInputHandler(_digitBox);
             _equalHandler = new EqualInputHandler(_digitBox, _expressionBuilder, isOperationPerformed);
             _clearHandler = new ClearInputHandler(_digitBox, _expressionBuilder);

@@ -10,10 +10,12 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
         private TextBox _digitBox;
         private StringBuilder _expression;
         private CalculationPerformer _calculationPerformer;
-        public OperatorsInputHandler(TextBox digitBox, StringBuilder expression)
+        private WrapperHelper<bool> _operationPerformed;
+        public OperatorsInputHandler(TextBox digitBox, StringBuilder expression, WrapperHelper<bool> operationPerformed)
         {
             _digitBox = digitBox;
             _expression = expression;
+            _operationPerformed = operationPerformed;
             _calculationPerformer = new CalculationPerformer();
         }
         public void InputChecker(string inputed)
@@ -28,7 +30,12 @@ namespace SimpleCalculator.Handlers.InterfacesRealization
                 _expression.Replace(_expression.ToString(), _calculationPerformer.PerformCalculations(_expression.ToString()) + inputed);
                 _expression.Replace(',', '.');
             }
-            _digitBox.Text = string.Empty;
+            _digitBox.Text = _expression.ToString();
+            ChangeOperationState(_operationPerformed);
+        }
+        private void ChangeOperationState(WrapperHelper<bool> operationPerformed)
+        {
+            operationPerformed.Value = true;
         }
     }
 }
